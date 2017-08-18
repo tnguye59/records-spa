@@ -23,10 +23,10 @@ class App extends React.PureComponent<{}, {}> {
       <MuiThemeProvider theme={theme}>
         <Router>
           <div>
-            <Header/>
+            <Header />
             <div className="App-content">
-              <TeamTable team={{name: 'Team 1'}} users={[{id: 5, name: 'Justin LaForge', points: 50}]}/>
-              <TeamTable team={{name: 'Team 2'}} users={[{id: 6, name: 'Tyler Hogan', points: 47}]}/>
+              <TeamTable team={{name: 'Team 1'}} users={[{id: 5, name: 'Justin LaForge', points: 50}]} />
+              <TeamTable team={{name: 'Team 2'}} users={[{id: 6, name: 'Tyler Hogan', points: 47}]} />
               <ChallengeTable challenges={[{id: 5, name: 'Test', points: 54}]}/>
               <Switch>
                 <Route exact={true} path="/"/>
