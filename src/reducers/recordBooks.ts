@@ -1,4 +1,9 @@
-import { RecordBook, PublishRecordBookAction } from '../types/recordBook';
+import { RecordBook } from '../types/recordBook';
+
+export type PublishRecordBookAction = Readonly<{
+  type: string,
+  id: number
+}>;
 
 const recordBooks = (state = [], action: PublishRecordBookAction) => {
   switch (action.type) {

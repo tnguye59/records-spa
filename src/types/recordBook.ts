@@ -10,8 +10,3 @@ export type RecordBook = Readonly<{
   createdAt: string,
   updatedAt: string
 }>;
-
-export type PublishRecordBookAction = Readonly<{
-  type: string,
-  id: number
-}>;
