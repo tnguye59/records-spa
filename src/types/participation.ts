@@ -1,6 +1,8 @@
 export type Participation = Readonly<{
   id: number,
-  participationType: string,
   createdAt: string,
-  updatedAt: string
+  updatedAt: string,
+
+  participationType: string,
+  totalPoints: number
 }>;

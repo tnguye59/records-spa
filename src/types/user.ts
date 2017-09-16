@@ -1,12 +1,14 @@
 export type User = Readonly<{
   id: number,
+  createdAt: string,
+  updatedAt: string,
+
+  admin: boolean,
+  confirmationSentAt: string,
+  confirmedAt: string | null,
   discordName: string,
   email: string | null,
-  admin: boolean,
-  confirmedAt: string | null,
-  confirmationSentAt: string,
-  unconfirmedEmail: string | null,
+  passwordUpdatedAt: string | null,
   resetPasswordSentAt: string | null,
-  createdAt: string,
-  updatedAt: string
+  unconfirmedEmail: string | null
 }>;
