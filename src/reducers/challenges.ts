@@ -1,10 +1,8 @@
-import { CHALLENGES_GET_SUCCESS } from '../actions/challenges';
+import { ActionTypeKeys, ActionTypes } from '../actions/index';
 
-import { Challenge } from '../types/challenge';
-
-const challenges = (state = [], action: { type: string, challenges: Challenge[] }) => {
+const challenges = (state = [], action: ActionTypes) => {
   switch (action.type) {
-    case CHALLENGES_GET_SUCCESS:
+    case ActionTypeKeys.CHALLENGES_GET_SUCCESS:
       return [
         ...state,
         action.challenges
