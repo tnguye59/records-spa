@@ -1,7 +1,9 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
+import thunkMiddleware from 'redux-thunk';
+import { createLogger } from 'redux-logger';
 
 import registerServiceWorker from './registerServiceWorker';
 import App from './App';
@@ -10,7 +12,14 @@ import appReducers from './reducers/index';
 import 'typeface-roboto';
 import './index.css';
 
-let store = createStore(appReducers);
+const loggerMiddleware = createLogger();
+let store = createStore(
+  appReducers,
+  applyMiddleware(
+    thunkMiddleware,
+    loggerMiddleware
+  )
+);
 
 ReactDOM.render(
   <Provider store={store}>
@@ -19,3 +28,7 @@ ReactDOM.render(
   document.getElementById('root') as HTMLElement
 );
 registerServiceWorker();
+
+import { challengesGet } from './actions/challenges';
+
+store.dispatch(challengesGet());

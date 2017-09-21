@@ -6,7 +6,6 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import Header from './components/Header/Header';
 import MemberChallengeList from './components/ChallengeLists/MemberChallengeList';
-import TeamStandingsList from './components/TeamStandingsList/TeamStandingsList';
 
 import './App.css';
 
@@ -29,7 +28,6 @@ const challenges = [
   {id: 9, name: 'Obtain Exotic (Power)'},
   {id: 10, name: 'Obtain Exotic (Armor)'}
 ];
-const team = {id: 1, name: 'Alpha Team'};
 
 class App extends React.PureComponent<{}, {}> {
   render() {
@@ -39,7 +37,6 @@ class App extends React.PureComponent<{}, {}> {
           <div>
             <Header/>
             <div className="App-content">
-              <TeamStandingsList challenges={challenges} team={team} />
               <MemberChallengeList challenges={challenges} />
               <Switch>
                 <Route exact={true} path="/"/>

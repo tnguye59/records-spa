@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 
-import recordBooks from './recordBooks';
+import challenges from './challenges';
 
 const appReducers = combineReducers({
-  recordBooks
+  challenges
 });
 
 export default appReducers;
