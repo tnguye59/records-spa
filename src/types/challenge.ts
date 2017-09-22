@@ -1,12 +1,11 @@
 export type Challenge = Readonly<{
   id: number,
-  createdAt: string,
-  updatedAt: string,
+  type: 'challenges',
 
-  maxCompletions: number,
-  name: string,
-  pointsCompletion: number,
-  pointsFirst: number | null,
-  pointsSecond: number | null,
-  pointsThird: number | null
+  attributes: {
+    created_at: string,
+    max_completions: 1,
+    name: string,
+    updated_at: string
+  }
 }>;

@@ -1,5 +1,10 @@
 import * as React from 'react';
 import * as classNames from 'classnames';
+import { connect } from 'react-redux';
+
+import { ChallengesState } from '../../reducers/challenges';
+import { Challenge } from '../../types/challenge';
+import { challengesGet } from '../../actions/challenges';
 
 import withStyles from 'material-ui/styles/withStyles';
 import { Theme } from 'material-ui/styles/createMuiTheme';
@@ -39,14 +44,16 @@ type MemberChallengeListClasses = {
 };
 
 type MemberChallengeListProps = {
-  challenges: {
-    id: number,
-    name: string,
-    points?: number
-  }[]
+  challenges: Challenge[]
+  dispatch: ()=>void
 };
 
-class MemberChallengeList extends React.PureComponent<MemberChallengeListProps & { classes: MemberChallengeListClasses }, {}> {
+class MemberChallengeList extends React.Component<MemberChallengeListProps & { classes: MemberChallengeListClasses }, {}> {
+  componentDidMount() {
+    const { dispatch, getChallenges } = this.props;
+    dispatch(getChallenges());
+  }
+
   render() {
     const { challenges, classes } = this.props;
     return (
@@ -68,7 +75,7 @@ class MemberChallengeList extends React.PureComponent<MemberChallengeListProps &
                     <FolderIcon />
                   </Avatar>
                 </ListItemAvatar>
-                <ListItemText primary={challenge.name.toUpperCase()} secondary="[Member Name Here]" />
+                <ListItemText primary={challenge.attributes.name.toUpperCase()} secondary="[Member Name Here]" />
                 <ListItemSecondaryAction>
                   <Avatar>
                     <AccountBoxIcon />
@@ -83,4 +90,10 @@ class MemberChallengeList extends React.PureComponent<MemberChallengeListProps &
   }
 }
 
-export default withStyles<MemberChallengeListProps>(styles)(MemberChallengeList);
+const mapStateToProps = (state: ChallengesState) => {
+  return {
+    challenges: state.challenges
+  };
+};
+
+export default connect(mapStateToProps)(withStyles<MemberChallengeListProps>(styles)(MemberChallengeList));

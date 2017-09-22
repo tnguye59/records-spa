@@ -15,20 +15,6 @@ const theme = createMuiTheme({
   }
 });
 
-// TOOD: Remove this dummy data
-const challenges = [
-  {id: 1, name: 'First to Die'},
-  {id: 2, name: 'Complete the Story'},
-  {id: 3, name: 'Reach Max Level'},
-  {id: 4, name: 'Reach Max Light'},
-  {id: 5, name: 'Win a PvP Match'},
-  {id: 6, name: 'Complete a Strike'},
-  {id: 7, name: 'Obtain Exotic (Primary)'},
-  {id: 8, name: 'Obtain Exotic (Elemental)'},
-  {id: 9, name: 'Obtain Exotic (Power)'},
-  {id: 10, name: 'Obtain Exotic (Armor)'}
-];
-
 class App extends React.PureComponent<{}, {}> {
   render() {
     return (
@@ -37,7 +23,7 @@ class App extends React.PureComponent<{}, {}> {
           <div>
             <Header/>
             <div className="App-content">
-              <MemberChallengeList challenges={challenges} />
+              <MemberChallengeList />
               <Switch>
                 <Route exact={true} path="/"/>
               </Switch>

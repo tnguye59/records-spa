@@ -28,7 +28,3 @@ ReactDOM.render(
   document.getElementById('root') as HTMLElement
 );
 registerServiceWorker();
-
-import { challengesGet } from './actions/challenges';
-
-store.dispatch(challengesGet());

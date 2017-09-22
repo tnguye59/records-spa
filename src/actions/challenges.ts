@@ -53,7 +53,7 @@ export const challengesGet = (): Dispatch<{}> => {
 
         return response.json();
       })
-      .then((challenges) => dispatch(challengesGetSuccess(challenges)))
+      .then((challenges) => dispatch(challengesGetSuccess(challenges.data)))
       .catch(() => dispatch(challengesGetError(true)));
   };
 };
